@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produk</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Toko Online</a>
+            <div class="menu">
+                <a href="cart.html">Keranjang</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="product-list">
+        <h2>Daftar Produk</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="assets/images/jc_200.png" alt="JC 200">
+                <h3>JC 200</h3>
+                <p>Harga: Rp 5.000.000</p>
+                <button onclick="addToCart('JC 200')">Tambah ke Keranjang</button>
+            </div>
+            <div class="product-card">
+                <img src="assets/images/nakamichi_ns_qt65.png" alt="Nakamichi NS QT65">
+                <h3>Nakamichi NS QT65</h3>
+                <p>Harga: Rp 3.200.000</p>
+                <button onclick="addToCart('Nakamichi NS QT65')">Tambah ke Keranjang</button>
+            </div>
+            <div class="product-card">
+                <img src="assets/images/speaker_iws_65_3.jpeg" alt="Speaker IWS 65.3">
+                <h3>Speaker IWS 65.3</h3>
+                <p>Harga: Rp 1.800.000</p>
+                <button onclick="addToCart('Speaker IWS 65.3')">Tambah ke Keranjang</button>
+            </div>
+            <div class="product-card">
+                <img src="assets/images/venom_ex_h.jpeg" alt="Venom Ex H">
+                <h3>Venom Ex H</h3>
+                <p>Harga: Rp 2.500.000</p>
+                <button onclick="addToCart('Venom Ex H')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Toko Online</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
