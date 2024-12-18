@@ -39,7 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
     loadProducts(featuredProductsContainer, products);
     loadProducts(productListContainer, products);
     
-    // Keranjang Belanja
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
     function saveCart() {
@@ -69,6 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             cart.push({ ...product, quantity: 1 });
         }
+        console.log(cart);
         saveCart();
         displayCart();
         calculateTotal();
@@ -86,6 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Jika keranjang kosong
             if (cart.length === 0) {
                 cartItemsContainer.innerHTML = '<p>Keranjang belanja Anda kosong.</p>';
+                calculateTotal();
                 return;
             }
     
@@ -102,6 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 `;
                 cartItemsContainer.appendChild(cartItem);
             });
+            calculateTotal();
         }
     }
     
@@ -141,6 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('product-image').src = product.photo;
             document.getElementById('product-description').innerText = product.description;
             document.getElementById('product-price').innerText = `Harga: Rp ${product.price.toLocaleString()}`;
+            displayReviews();
         }
     }
 
@@ -152,29 +155,42 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function addReview() {
-        const reviewText = document.getElementById('review-text').value;
-        const product = JSON.parse(localStorage.getItem('productDetail'));
-        if (reviewText && product) {
-            const review = { productId: product.id, text: reviewText, rating: 5 };
-            reviews.push(review);
-            saveReviews();
-            displayReviews(product.id);
-            document.getElementById('review-text').value = '';
+        const reviewText = document.getElementById("review-text").value;
+        const rating = prompt("Berapa rating yang Anda berikan? (1-5)");
+    
+        if (reviewText.trim() !== '' && rating >= 1 && rating <= 5) {
+            // Menambahkan ulasan baru ke array reviews
+            product.reviews.push({ text: reviewText, rating: rating });
+            displayReviews(); // Perbarui tampilan ulasan
+            document.getElementById("review-text").value = ''; // Reset textarea
+        } else {
+            alert("Harap masukkan ulasan yang valid dan rating antara 1-5!");
         }
     }
 
-    function displayReviews(productId) {
-        const reviewList = document.getElementById('review-list');
-        if (reviewList) {
-            reviewList.innerHTML = '';
-            const productReviews = reviews.filter(review => review.productId === productId);
-            productReviews.forEach(review => {
-                const reviewItem = document.createElement('div');
-                reviewItem.classList.add('review-item');
-                reviewItem.innerHTML = `<p>${review.text}</p><span>Rating: ${review.rating}</span>`;
-                reviewList.appendChild(reviewItem);
-            });
+    function displayReviews() {
+        const reviewList = document.getElementById("review-list");
+        reviewList.innerHTML = ''; // Reset ulasan lama
+    
+        if (product.reviews.length === 0) {
+            reviewList.innerHTML = "<p>Tidak ada ulasan untuk produk ini.</p>";
         }
+    
+        product.reviews.forEach((review, index) => {
+            const reviewElement = document.createElement("div");
+            reviewElement.classList.add("review");
+            reviewElement.innerHTML = `
+                <p><strong>Rating: ${review.rating} Bintang</strong></p>
+                <p>${review.text}</p>
+                <button onclick="deleteReview(${index})">Hapus</button>
+            `;
+            reviewList.appendChild(reviewElement);
+        });
+    }
+
+    function deleteReview(index) {
+        product.reviews.splice(index, 1); 
+        displayReviews(); 
     }
 
     // Wishlist functionality
