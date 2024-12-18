@@ -4,29 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Toko AutoZone</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-
     <header>
         <nav>
             <a href="index.html" class="logo">Toko AutoZone</a>
             <div class="menu">
                 <a href="product.html">Produk</a>
                 <a href="cart.html">Keranjang</a>
+                <a href="wishlist.html">Daftar Keinginan</a>
+                <a href="notifications.html">Notifikasi</a>
+                <a href="status.html">Status Pesanan</a>
+                <a href="contact.html">Contact</a>
                 <a href="login.html">Login</a>
-                <a href="register.html">Daftar</a>
+                <a href="register.html">Register</a>
             </div>
         </nav>
     </header>
 
-    <!-- Form Login -->
     <section class="login-form">
-        
-        <form action="login-process.php" method="POST">
+        <form>
             <h2>Login</h2>
-            <input type="email" name="email" placeholder="Email" required>
-            <input type="password" name="password" placeholder="Password" required>
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Password" required>
             <button type="submit">Login</button>
             <p class="form-link">Belum punya akun? <a href="register.html">Daftar</a></p>
         </form>
@@ -35,6 +36,5 @@
     <footer>
         <p>&copy; 2024 Toko AutoZone</p>
     </footer>
-
 </body>
 </html>

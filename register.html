@@ -4,31 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daftar - Toko AutoZone</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-
     <header>
         <nav>
             <a href="index.html" class="logo">Toko AutoZone</a>
             <div class="menu">
                 <a href="product.html">Produk</a>
                 <a href="cart.html">Keranjang</a>
+                <a href="wishlist.html">Daftar Keinginan</a>
+                <a href="notifications.html">Notifikasi</a>
+                <a href="status.html">Status Pesanan</a>
+                <a href="contact.html">Contact</a>
                 <a href="login.html">Login</a>
-                <a href="register.html">Daftar</a>
+                <a href="register.html">Register</a>
             </div>
         </nav>
     </header>
 
-    <!-- Form Register -->
     <section class="register-form">
-        
-        <form action="register-process.php" method="POST">
-            <h2>Daftar</h2>
-            <input type="text" name="name" placeholder="Nama" required>
-            <input type="email" name="email" placeholder="Email" required>
-            <input type="password" name="password" placeholder="Password" required>
-            <input type="tel" name="phone" placeholder="Nomor Telepon" required>
+        <form>
+            <h2>Register</h2>
+            <input type="text" placeholder="Nama" required>
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Password" required>
+            <input type="tel" placeholder="Nomor Telepon" required>
             <button type="submit">Daftar</button>
             <p class="form-link">Sudah punya akun? <a href="login.html">Login</a></p>
         </form>
@@ -37,6 +38,5 @@
     <footer>
         <p>&copy; 2024 Toko AutoZone</p>
     </footer>
-
 </body>
 </html>

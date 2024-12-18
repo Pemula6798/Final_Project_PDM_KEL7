@@ -1,4 +1,4 @@
-/* Styling untuk semua elemen secara umum */
+/* General Styles for all Elements */
 * {
     margin: 0;
     padding: 0;
@@ -43,7 +43,7 @@ nav {
 .hero {
     background-color: #2980B9;
     color: white;
-    padding: 120px 20px 50px 20px; /* Padding ditambah agar teks tidak tertutup */
+    padding: 120px 20px 50px 20px; /* Padding increased to avoid overlapping text */
     text-align: center;
     position: relative;
     z-index: 2;
@@ -122,6 +122,7 @@ button:hover {
     background-color: #2ECC71;
 }
 
+/* Form Styles */
 form {
     background-color: #fff;
     padding: 20px;
@@ -130,14 +131,14 @@ form {
     max-width: 400px;
     margin: 20px auto;
 }
+
 form h2 {
     text-align: center;
     margin-bottom: 20px;
     color: #2C3E50;
 }
 
-
-input[type="text"], input[type="email"], input[type="password"], input[type="tel"] {
+input[type="text"], input[type="email"], input[type="password"], input[type="tel"], textarea {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
@@ -174,7 +175,175 @@ form p a:hover {
     text-decoration: underline;
 }
 
+/* Cart Styles */
+.cart {
+    padding: 20px;
+}
 
+.cart h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2C3E50;
+}
+
+#cart-items {
+    margin-bottom: 20px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.cart-item span {
+    font-size: 16px;
+}
+
+.cart-item button {
+    background-color: #E74C3C;
+    border: none;
+    padding: 5px 10px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cart-item button:hover {
+    background-color: #C0392B;
+}
+
+/* Wishlist Styles */
+.wishlist {
+    padding: 20px;
+}
+
+.wishlist h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2C3E50;
+}
+
+.wishlist-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+.wishlist-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.wishlist-item h3 {
+    font-size: 18px;
+    color: #2C3E50;
+}
+
+.wishlist-item p {
+    font-size: 16px;
+    color: #E74C3C;
+}
+
+.wishlist-item button {
+    background-color: #E74C3C;
+    border: none;
+    padding: 5px 10px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.wishlist-item img {
+    width: 200px; 
+    height: 200px; 
+    object-fit: cover; 
+    border: 1px solid #ccc; 
+    margin-right: 10px; 
+}
+
+.wishlist-item button:hover {
+    background-color: #C0392B;
+}
+
+/* Notifications */
+.notifications {
+    padding: 20px;
+}
+
+.notifications h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2C3E50;
+}
+
+.notification-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+.notification-item p {
+    font-size: 16px;
+    color: #333;
+}
+
+.notification-item span {
+    font-size: 12px;
+    color: #999;
+}
+
+/* Order Status */
+.status-check {
+    padding: 20px;
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+.status-check h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2C3E50;
+}
+
+.status-check input, .status-check button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.status-check button {
+    background-color: #2980B9;
+    color: white;
+    cursor: pointer;
+}
+
+.status-check button:hover {
+    background-color: #3498DB;
+}
+
+#order-status {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 18px;
+    color: #2C3E50;
+}
+
+/* Footer */
 footer {
     background-color: #2C3E50;
     color: white;
@@ -183,7 +352,7 @@ footer {
     margin-top: 20px;
 }
 
-
+/* Media Queries */
 @media (max-width: 768px) {
     .product-grid {
         grid-template-columns: 1fr 1fr;

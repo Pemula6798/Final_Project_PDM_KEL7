@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produk</title>
+    <title>Detail Produk</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
+<body class="product-detail-page">
     <header>
         <nav>
             <a href="index.html" class="logo">Toko AutoZone</a>
@@ -22,10 +22,19 @@
         </nav>
     </header>
 
-    <section class="product-list">
-        <h2>Daftar Produk</h2>
-        <div class="product-grid" id="product-list">
-            <!-- Produk akan dimuat di sini melalui JavaScript -->
+    <section class="product-detail">
+        <h2 id="product-name">Nama Produk</h2>
+        <img id="product-image" src="assets/images/default.jpg" alt="Produk">
+        <p id="product-description">Deskripsi Produk</p>
+        <p id="product-price">Harga: Rp 0</p>
+        <button onclick="addToCart()">Tambah ke Keranjang</button>
+        <div id="reviews">
+            <h3>Ulasan</h3>
+            <div id="review-list">
+                <!-- Ulasan akan dimuat di sini melalui JavaScript -->
+            </div>
+            <textarea id="review-text" placeholder="Tulis ulasan..."></textarea>
+            <button onclick="addReview()">Tambahkan Ulasan</button>
         </div>
     </section>
 

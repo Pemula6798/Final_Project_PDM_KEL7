@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toko Online - Beranda</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Toko AutoZone</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
     <!-- Header dengan menu -->
@@ -14,8 +14,11 @@
             <div class="menu">
                 <a href="product.html">Produk</a>
                 <a href="cart.html">Keranjang</a>
+                <a href="wishlist.html">Daftar Keinginan</a>
+                <a href="notifications.html">Notifikasi</a>
+                <a href="status.html">Status Pesanan</a>
+                <a href="contact.html">Contact</a>
                 <a href="login.html">Login</a>
-                <a href="register.html">Daftar</a>
             </div>
         </nav>
     </header>
@@ -35,31 +38,8 @@
     <!-- Featured Products Section -->
     <section class="featured-products">
         <h2>Produk Terpopuler</h2>
-        <div class="product-grid">
-            <div class="product-card">
-                <img src="assets/images/arc_audio_x2_6_2.jpg" alt="ARC Audio X2 6.2">
-                <h3>ARC Audio X2 6.2</h3>
-                <p>Harga: Rp 3.000.000</p>
-                <button onclick="addToCart('ARC Audio X2 6.2')">Tambah ke Keranjang</button>
-            </div>
-            <div class="product-card">
-                <img src="assets/images/j100-gps-tracking-device.png" alt="J100 GPS">
-                <h3>J100 GPS</h3>
-                <p>Harga: Rp 1.200.000</p>
-                <button onclick="addToCart('J100 GPS')">Tambah ke Keranjang</button>
-            </div>
-            <div class="product-card">
-                <img src="assets/images/jc_200.png" alt="JC 200"> <!-- Gambar JC 200 diperbaiki menjadi PNG -->
-                <h3>JC 200</h3>
-                <p>Harga: Rp 4.500.000</p>
-                <button onclick="addToCart('JC 200')">Tambah ke Keranjang</button>
-            </div>
-            <div class="product-card">
-                <img src="assets/images/nakamichi_nt39.jpeg" alt="Nakamichi NT39">
-                <h3>Nakamichi NT39</h3>
-                <p>Harga: Rp 2.800.000</p>
-                <button onclick="addToCart('Nakamichi NT39')">Tambah ke Keranjang</button>
-            </div>
+        <div class="product-grid" id="featured-products">
+            <!-- Produk akan dimuat di sini melalui JavaScript -->
         </div>
     </section>
 
@@ -67,6 +47,6 @@
         <p>&copy; 2024 Toko AutoZone</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>

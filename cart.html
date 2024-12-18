@@ -4,28 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Keranjang</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
+<body class="cart-page">
     <header>
         <nav>
-            <a href="index.html" class="logo">Toko Online</a>
+            <a href="index.html" class="logo">Toko AutoZone</a>
             <div class="menu">
                 <a href="product.html">Produk</a>
+                <a href="cart.html" class="active">Keranjang</a>
+                <a href="wishlist.html">Daftar Keinginan</a>
+                <a href="notifications.html">Notifikasi</a>
+                <a href="status.html">Status Pesanan</a>
+                <a href="contact.html">Contact</a>
+                <a href="login.html">Login</a>
             </div>
         </nav>
     </header>
 
-    <section class="cart">
-        <h2>Keranjang Belanja</h2>
-        <div id="cart-items"></div>
-        <button onclick="checkout()">Checkout</button>
-    </section>
+    <main>
+        <section class="cart">
+            <h2>Keranjang Belanja</h2>
+            <div id="cart-items"></div>
+            <p id="total-price">Total: Rp 0</p> <!-- Elemen untuk total -->
+            <button onclick="checkout()">Checkout</button>
+        </section>        
+    </main>
 
     <footer>
-        <p>&copy; 2024 Toko Online</p>
+        <p>&copy; 2024 Toko AutoZone</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script>
+        // Panggil displayCart() saat halaman selesai dimuat
+        window.onload = function () {
+            if (typeof displayCart === "function") {
+                displayCart();
+            } else {
+                console.error("Fungsi displayCart tidak ditemukan. Pastikan script.js sudah benar.");
+            }
+        };
+    </script>
 </body>
 </html>
