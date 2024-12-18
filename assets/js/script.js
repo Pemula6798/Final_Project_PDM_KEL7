@@ -12,8 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
         { id: 10, name: 'ZS 6.3 RC Speaker', description: 'Premium ZS series speaker.', price: 2200000, photo: 'assets/images/zs_6_3_rc.jpg' }
     ];
 
+    
     const featuredProductsContainer = document.getElementById('featured-products');
     const productListContainer = document.getElementById('product-list');
+    
 
     function loadProducts(container, products) {
         if (container) {
@@ -36,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     loadProducts(featuredProductsContainer, products);
     loadProducts(productListContainer, products);
-
+    
     // Keranjang Belanja
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
@@ -123,12 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
         displayCart();
         calculateTotal();
     }
-
-    function searchProducts() {
-        const query = document.getElementById('searchBar').value.toLowerCase();
-        const filteredProducts = products.filter(product => product.name.toLowerCase().includes(query));
-        loadProducts(productListContainer, filteredProducts);
-    }
+    
 
     // Detail Produk
     function viewProductDetail(productId) {
@@ -329,5 +326,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 checkOrderStatus();
             });
         }
+
+        const searchBar = document.getElementById('searchBar');
+        function searchProducts() {
+        const query = searchBar.value.toLowerCase();
+
+        // Filter products based on query
+        const filteredProducts = products.filter(product =>
+            product.name.toLowerCase().includes(query)
+        );
+
+        // Display filtered products
+        const productListContainer = document.getElementById('featured-products');
+        loadProducts(productListContainer, filteredProducts);
+        }
+        searchBar.addEventListener('input', searchProducts);
     });
     
