@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembayaran - Toko AutoZone</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" href="../assets/img/favicon.ico">
+    <script src="../assets/js/payment.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Pembayaran</h1>
+    </header>
+    <section id="payment-section">
+        <h2 align="center">Detail Pembayaran</h2>
+        <div id="payment-items">
+            <!-- List Pembayaran-->
+        </div>
+        <div id="total-price">Total: Rp 0</div>
+        <form id="payment-form">
+            <label for="payment-proof">Unggah Bukti Pembayaran:</label>
+            <input type="file" id="payment-proof" name="payment-proof" accept="image/*" required>
+            <button type="button" onclick="submitPayment()">Konfirmasi Pembayaran</button>
+        </form>
+    </section>
+    <footer>
+        <p>&copy; 2024 Toko AutoZone</p>
+    </footer>
+</body>
+</html>

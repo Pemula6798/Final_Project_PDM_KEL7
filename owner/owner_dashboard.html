@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Pemilik - Toko AutoZone</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" href="../assets/img/favicon.ico">
+    <script src="../assets/js/sellHistory.js" defer></script>
+    <script src="../assets/js/viewReview.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Dashboard Pemilik</h1>
+    </header>
+    <div class="navbar">
+        <a href="owner_dashboard.html">Home</a>
+        <a href="add_delete_edit_product.html">Product</a>
+        <a href="add_delete_edit_diskon.html">Diskon</a>
+        <a href="add_delete_edit_notification.html">Notifications</a>
+        <a href="auto_edit_statuspesanan.html">Order Status</a>
+        <a href="sell_history.html">History</a>
+        <a href="view_review.html">Feedback</a>
+        <a href="ownerAccount.html">Account</a>
+    </div>
+    <section align="center">
+        <h2>Selamat datang, Pemilik Toko!</h2>
+        <p>Ini adalah dashboard untuk mengelola toko Anda.</p>
+    </section>
+    <section id="dashboard-previews">
+        <div class="preview-item">
+            <h2>Kelola Produk</h2>
+            <div class="preview-content">
+                <!-- Pratinjau langsung dari halaman kelola produk -->
+                <form>
+                    <h2>Tambah/Edit Produk</h2>
+                    <input type="hidden" id="product-id">
+                    <label for="product-name">Nama Produk:</label>
+                    <input type="text" id="product-name" placeholder="Nama Produk" required>
+                    <label for="product-price">Harga Produk:</label>
+                    <input type="number" id="product-price" placeholder="Harga Produk" required>
+                    <label for="product-quantity">Jumlah Produk:</label>
+                    <input type="number" id="product-quantity" placeholder="Jumlah Produk" required>
+                    <label for="product-photo">Foto Produk:</label>
+                    <input type="file" id="product-photo" accept="image/*" required>
+                    <label for="product-details">Detail Produk:</label>
+                    <textarea id="product-details" placeholder="Detail Produk" required></textarea>
+                    <button type="button">Simpan Produk</button>
+                </form>
+            </div>
+            <button onclick="window.location.href='add_delete_edit_product.html'">Lihat Detail</button>
+        </div>
+        <div class="preview-item">
+            <h2>Kelola Diskon</h2>
+            <div class="preview-content">
+                <!-- Pratinjau langsung dari halaman kelola diskon -->
+                <form>
+                    <h2>Tambah/Edit Diskon</h2>
+                    <input type="hidden" id="discount-id">
+                    <label for="discount-name">Nama Diskon:</label>
+                    <input type="text" id="discount-name" placeholder="Nama Diskon" required>
+                    <label for="discount-percentage">Persentase Diskon:</label>
+                    <input type="number" id="discount-percentage" placeholder="Persentase Diskon" required><br><br>
+                    <button type="button" >Simpan Diskon</button>
+                </form>
+            </div>
+            <button onclick="window.location.href='add_delete_edit_diskon.html'">Lihat Detail</button>
+        </div>
+        <div class="preview-item">
+            <h2>Kelola Notifikasi</h2>
+            <div class="preview-content">
+                <!-- Pratinjau langsung dari halaman kelola notifikasi -->
+                <form>
+                    <input type="hidden" id="notification-id">
+                    <label for="notification-title">Judul Notifikasi:</label>
+                    <input type="text" id="notification-title" placeholder="Judul Notifikasi" required>
+                    <label for="notification-message">Pesan Notifikasi:</label>
+                    <textarea id="notification-message" placeholder="Pesan Notifikasi" required></textarea>
+                    <label for="notification-recipients">Penerima Notifikasi:</label>
+                    <input type="text" id="notification-recipients" placeholder="Penerima Notifikasi (pisahkan dengan koma)" required>
+                    <button type="button">Simpan Notifikasi</button>
+                </form>
+            </div>
+            <button onclick="window.location.href='add_delete_edit_notification.html'">Lihat Detail</button>
+        </div>
+        <div class="preview-item">
+            <h2>Kelola Status Pesanan</h2>
+            <div class="preview-content">
+                <!-- Pratinjau langsung dari halaman kelola status pesanan -->
+                <form>
+                    <label for="order-id">ID Pesanan:</label>
+                    <input type="text" id="order-id" placeholder="ID Pesanan"><br>
+                    <label for="order-status">Status Pesanan:</label>
+                    <select id="order-status">
+                        <option value="pending">Pending</option>
+                        <option value="processed">Processed</option>
+                        <option value="shipped">Shipped</option>
+                        <option value="delivered">Delivered</option>
+                    </select>
+                    <br><br>
+                    <button type="button">Perbarui Status</button>
+                </form>
+            </div>
+            <button onclick="window.location.href='auto_edit_statuspesanan.html'">Lihat Detail</button>
+        </div>
+        <div class="preview-item">
+            <h2>Riwayat Penjualan</h2>
+            <div class="preview-content">
+                <!-- Pratinjau langsung dari halaman riwayat penjualan -->
+                <section id="sell-history-section">
+                    <h2 align="center">Riwayat Penjualan</h2>
+                    <div id="sell-history">
+                        <!-- List Riwayat Penjualan -->
+                    </div>
+                </section>
+            </div>
+            <button onclick="window.location.href='sell_history.html'">Lihat Detail</button>
+        </div>
+        <div class="preview-item">
+            <h2>Ulasan Pelanggan</h2>
+            <div class="preview-content">
+                <!-- Pratinjau langsung dari halaman ulasan pelanggan -->
+                <section id="review-section">
+                    <h2 align="center">Ulasan dan Rating</h2>
+                    <div id="review-list">
+                        <!-- List Ulasan dan Rating -->
+                    </div>
+                </section>
+            </div>
+            <button onclick="window.location.href='view_review.html'">Lihat Detail</button>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2024 Toko AutoZone</p>
+    </footer>
+</body>
+</html>

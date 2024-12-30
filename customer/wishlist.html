@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishlist - Toko AutoZone</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" href="../assets/img/favicon.ico">
+    <script src="../assets/js/customer.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Daftar Keinginan</h1>
+    </header>
+    <div class="navbar">
+        <a href="customer_dashboard.html">Home</a>
+        <a href="product.html">Product</a>
+        <a href="cart.html">Cart</a>
+        <a href="wishlist.html">Wishlist</a>
+        <a href="order_status.html">Order Status</a>
+        <a href="purchase_history.html">History</a>
+        <a href="notifications.html">Notifications</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="editaccount.html">Account</a>
+    </div>
+    <section id="wishlist-section">
+        <h2 align="center">Wishlist Anda</h2>
+        <div id="wishlist-items">
+            <!-- List Wishlist-->
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2024 Toko AutoZone</p>
+    </footer>
+    <script>
+        function displayWishlist() {
+            const wishlistContainer = document.getElementById('wishlist-items');
+            const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+            wishlistContainer.innerHTML = '';
+
+            if (wishlist.length === 0) {
+                wishlistContainer.innerHTML = '<p>Wishlist Anda kosong.</p>';
+                return;
+            }
+
+            wishlist.forEach(item => {
+                const wishlistItem = document.createElement('div');
+                wishlistItem.classList.add('wishlist-item');
+                wishlistItem.innerHTML = `
+                    <img src="${item.photo}" alt="${item.name}">
+                    <h3>${item.name}</h3>
+                    <p>Rp ${item.price.toLocaleString()}</p>
+                    <button onclick="moveToCart(${item.id})">Tambah ke Keranjang</button>
+                    <button onclick="removeFromWishlist(${item.id})">Hapus</button>
+                `;
+                wishlistContainer.appendChild(wishlistItem);
+            });
+        }
+
+        function moveToCart(productId) {
+            addToCart(productId);
+            removeFromWishlist(productId);
+        }
+
+        function removeFromWishlist(productId) {
+            let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+            wishlist = wishlist.filter(item => item.id !== productId);
+            localStorage.setItem('wishlist', JSON.stringify(wishlist));
+            displayWishlist();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            displayWishlist();
+        });
+    </script>
+</body>
+</html>

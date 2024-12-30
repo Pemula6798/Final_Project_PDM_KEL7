@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Status Pesanan - Toko AutoZone</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" href="../assets/img/favicon.ico">
+    <script src="../assets/js/manage_order_status.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Kelola Status Pesanan</h1>
+    </header>
+    <div class="navbar">
+        <a href="owner_dashboard.html">Home</a>
+        <a href="add_delete_edit_product.html">Product</a>
+        <a href="add_delete_edit_diskon.html">Diskon</a>
+        <a href="add_delete_edit_notification.html">Notifications</a>
+        <a href="auto_edit_statuspesanan.html">Order Status</a>
+        <a href="sell_history.html">History</a>
+        <a href="view_review.html">Feedback</a>
+        <a href="ownerAccount.html">Account</a>
+    </div>
+    <section id="order-status-list">
+        <h2>Daftar Status Pesanan</h2>
+        <div id="orders"></div>
+    </section>
+    <section id="order-status-form">
+        <form>
+            <label for="order-id">ID Pesanan:</label>
+            <input type="text" id="order-id" placeholder="ID Pesanan" required>
+            <label for="order-status">Status Pesanan:</label>
+            <select id="order-status" required>
+                <option value="pending">Pending</option>
+                <option value="processed">Processed</option>
+                <option value="shipped">Shipped</option>
+                <option value="delivered">Delivered</option>
+            </select>
+            <br><br>
+            <button type="button" onclick="saveOrderStatus()">Simpan Status</button>
+        </form>
+    </section>
+    
+    <footer>
+        <p>&copy; 2024 Toko AutoZone</p>
+    </footer>
+</body>
+</html>

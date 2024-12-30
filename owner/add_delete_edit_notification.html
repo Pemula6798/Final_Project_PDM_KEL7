@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifikasi - Toko AutoZone</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" href="../assets/img/favicon.ico">
+    <script src="../assets/js/manage_notifications.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Kelola Notifikasi</h1>
+    </header>
+    <div class="navbar">
+        <a href="owner_dashboard.html">Home</a>
+        <a href="add_delete_edit_product.html">Product</a>
+        <a href="add_delete_edit_diskon.html">Diskon</a>
+        <a href="add_delete_edit_notification.html">Notifications</a>
+        <a href="auto_edit_statuspesanan.html">Order Status</a>
+        <a href="sell_history.html">History</a>
+        <a href="view_review.html">Feedback</a>
+        <a href="ownerAccount.html">Account</a>
+    </div>
+    <section id="notification-list">
+        <h2>Daftar Notifikasi</h2>
+        <div id="notifications"></div>
+    </section>
+    <section id="notification-form">
+        <form>
+            <input type="hidden" id="notification-id">
+            <label for="notification-title">Judul Notifikasi:</label>
+            <input type="text" id="notification-title" placeholder="Judul Notifikasi" required>
+            <label for="notification-message">Pesan Notifikasi:</label>
+            <textarea id="notification-message" placeholder="Pesan Notifikasi" required></textarea>
+            <label for="notification-recipients">Penerima Notifikasi:</label>
+            <input type="text" id="notification-recipients" placeholder="Penerima Notifikasi (pisahkan dengan koma)" required>
+            <button type="button" onclick="saveNotification()">Simpan Notifikasi</button>
+        </form>
+    </section>
+    
+    <footer>
+        <p>&copy; 2024 Toko AutoZone</p>
+    </footer>
+</body>
+</html>

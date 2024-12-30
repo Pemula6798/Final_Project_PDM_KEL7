@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produk - Toko AutoZone</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" href="../assets/img/favicon.ico">
+    <script src="../assets/js/customer.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Produk Kami</h1>
+    </header>
+    <div class="navbar">
+        <a href="customer_dashboard.html">Home</a>
+        <a href="product.html">Product</a>
+        <a href="cart.html">Cart</a>
+        <a href="wishlist.html">Wishlist</a>
+        <a href="order_status.html">Order Status</a>
+        <a href="purchase_history.html">History</a>
+        <a href="notifications.html">Notifications</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="editaccount.html">Account</a>
+    </div>
+    <section id="featured-products">
+        <h2 align="center">Daftar Produk</h2>
+        <div class="search-container">
+            <input type="text" id="searchBar" placeholder="Cari produk...">
+        </div>
+        <div class="product-grid" id="product-container">
+            <!-- List Produk-->
+        </div>
+    </section>
+    
+    <footer>
+        <p>&copy; 2024 Toko AutoZone</p>
+    </footer>
+    <script>
+        function addToCart(productId) {
+            // ...existing code...
+            alert('Produk berhasil ditambahkan ke keranjang!');
+        }
+
+        function addToWishlist(productId) {
+            // ...existing code...
+            alert('Produk berhasil ditambahkan ke wishlist!');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keranjang Belanja - Toko AutoZone</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" href="../assets/img/favicon.ico">
+    <script src="../assets/js/customer.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Keranjang Belanja</h1>
+    </header>
+    <div class="navbar">
+        <a href="customer_dashboard.html">Home</a>
+        <a href="product.html">Product</a>
+        <a href="cart.html">Cart</a>
+        <a href="wishlist.html">Wishlist</a>
+        <a href="order_status.html">Order Status</a>
+        <a href="purchase_history.html">History</a>
+        <a href="notifications.html">Notifications</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="editaccount.html">Account</a>
+    </div>
+    <section id="cart-section">
+        <h2 align="center">Keranjang Anda</h2>
+        <div id="cart-items">
+            <!-- List Keranjang-->
+        </div>
+        <div id="total-price">Total: Rp 0</div>
+        <button onclick="checkout()">Checkout</button>
+    </section>
+    <footer>
+        <p>&copy; 2024 Toko AutoZone</p>
+    </footer>
+    <script>
+        function displayCart() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cartItemsContainer.innerHTML = '';
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p>Keranjang belanja Anda kosong.</p>';
+                return;
+            }
+
+            cart.forEach(item => {
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+                cartItem.innerHTML = `
+                    <input type="checkbox" class="cart-item-checkbox" data-id="${item.id}">
+                    <img src="${item.photo}" alt="${item.name}" style="width: 50px; height: 50px; object-fit: cover;">
+                    <span>${item.name}</span>
+                    <span>Rp ${item.price.toLocaleString()}</span>
+                    <input type="number" value="${item.quantity}" min="1" class="cart-item-quantity" data-id="${item.id}">
+                    <button onclick="removeFromCart(${item.id})">Hapus</button>
+                `;
+                cartItemsContainer.appendChild(cartItem);
+            });
+
+            calculateTotal();
+        }
+
+        function calculateTotal() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let total = 0;
+            cart.forEach(item => {
+                total += item.price * item.quantity;
+            });
+            document.getElementById('total-price').innerText = `Total: Rp ${total.toLocaleString()}`;
+        }
+
+        function removeFromCart(productId) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart = cart.filter(item => item.id !== productId);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            displayCart();
+        }
+
+        function checkout() {
+            const selectedItems = [];
+            document.querySelectorAll('.cart-item-checkbox:checked').forEach(checkbox => {
+                const productId = parseInt(checkbox.getAttribute('data-id'));
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                const item = cart.find(item => item.id === productId);
+                if (item) {
+                    selectedItems.push(item);
+                }
+            });
+
+            if (selectedItems.length === 0) {
+                alert('Pilih produk yang ingin di-checkout.');
+                return;
+            }
+
+            localStorage.setItem('checkoutItems', JSON.stringify(selectedItems));
+            window.location.href = 'payment.html';
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            displayCart();
+            document.querySelectorAll('.cart-item-quantity').forEach(input => {
+                input.addEventListener('change', (e) => {
+                    const productId = parseInt(e.target.getAttribute('data-id'));
+                    const quantity = parseInt(e.target.value);
+                    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                    const item = cart.find(item => item.id === productId);
+                    if (item) {
+                        item.quantity = quantity;
+                        localStorage.setItem('cart', JSON.stringify(cart));
+                        calculateTotal();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
